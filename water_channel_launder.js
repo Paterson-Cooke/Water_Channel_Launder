@@ -23,7 +23,7 @@ function draw() {
   var fluid_height = channel_launder_water(channel_width, channel_height, flow_rate, slope, water_viscosity, water_density, wall_roughness, '4');
   var y_over_d = fluid_height / channel_height;
   var froude = velocity / (fluid_height * 9.81) ** 0.5;
-  var bend_width = channel_height;
+  var bend_width = channel_width;
   var bend_radius = bend_width * bend_radius;
   var n = bend_radius / bend_width;
   var superelevation_height = velocity ** 2 / (9.81 * n);
@@ -55,16 +55,16 @@ function draw() {
 
   // output text
   fill('black');
-  noStroke()
-  textFont('Courier New')
+  noStroke();
+  textFont('Courier New');
   textSize(16);
-  var x_location = 20
-  var y_location = 20
-  var y_spacing = 20
+  var x_location = 20;
+  var y_location = 20;
+  var y_spacing = 20;
   text('Slope (%):               ' + (100 * slope).toPrecision(3), x_location, y_location);
-  y_location = y_location + y_spacing
+  y_location = y_location + y_spacing;
   text('Velocity (m/s):          ' + velocity.toPrecision(3), x_location, y_location);
-  y_location = y_location + y_spacing
+  y_location = y_location + y_spacing;
   if (fluid_height == channel_height) {
     fill('red');
     text('Fluid height (m):        OVERFLOW', x_location, y_location);
@@ -72,22 +72,23 @@ function draw() {
   } else {
     text('Fluid height (m):        ' + fluid_height.toPrecision(4), x_location, y_location);
   }
-  y_location = y_location + y_spacing
-  text('y/d (%):                 ' + (100 * y_over_d).toPrecision(3) + '%', x_location, y_location);
-  y_location = y_location + y_spacing
+  y_location = y_location + y_spacing;
+  text('Percent full (%):        ' + (100 * y_over_d).toPrecision(3) + '%', x_location, y_location);
+  y_location = y_location + y_spacing;
   text('Froude number (-):       ' + froude.toPrecision(4), x_location, y_location);
-  y_location = y_location + y_spacing
-  x_location = 375
-  y_location = 20
+  y_location = y_location + y_spacing;
+  x_location = 375;
+  y_location = 20;
   text('Bend width (m):                 ' + bend_width.toPrecision(3), x_location, y_location);
-  y_location = y_location + y_spacing
+  y_location = y_location + y_spacing;
   text('Bend radius (m):                ' + bend_radius.toPrecision(3), x_location, y_location);
-  y_location = y_location + y_spacing
+  y_location = y_location + y_spacing;
   text('Bend superelevation height (m): ' + superelevation_height.toPrecision(3), x_location, y_location);
-  y_location = y_location + y_spacing
+  y_location = y_location + y_spacing;
   text('Fluid height in bend (m):       ' + fluid_height_bend.toPrecision(3), x_location, y_location);
-  y_location = y_location + y_spacing
-  text('y/d in bend (%):                ' + (100 * y_over_d_bend).toPrecision(3) + '%', x_location, y_location);
+  y_location = y_location + y_spacing;
+  text('Percent full in bend (%):       ' + (100 * y_over_d_bend).toPrecision(3) + '%', x_location, y_location);
+  text('lee.goudzwaard@patersoncooke.com', 5, height - 5);
 }
 
 function channel_launder_water(channel_width, channel_height, flow, slope, viscosity, density, roughness, output) {
