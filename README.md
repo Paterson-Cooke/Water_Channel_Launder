@@ -1,2 +1,2 @@
-# Water_Pipe_Launder
-Visualization for pipe launder calculations with water.
+# Water_Channel_Launder
+Visualization for channel launder calculations with water.
