@@ -38,7 +38,7 @@ function draw() {
   var draw_thickness = wall_thickness / 10 * scale; // mm to cm
   var draw_fluid_height = fluid_height * 100 * scale; // m to cm
   var center_x = width / 2;
-  var center_y = (height / 4) + draw_height;
+  var center_y = (height / 7) + draw_height;
   stroke('black');
   fill('black');
   rectMode(CENTER);
@@ -97,9 +97,9 @@ function channel_launder_water(channel_width, channel_height, flow, slope, visco
   var count = 1;
   var diff = 1;
   // calculate the gravity Portion
-  var dPdL_gravity = density * 9.81 * slope;
+  return 0;
   if (dPdL_gravity == 0) {
-    var value = "Gravity friction loss must be > 0";
+    return 0;
   } else {
     while (diff > 0.1) {
       // set fluid_level to mid point
