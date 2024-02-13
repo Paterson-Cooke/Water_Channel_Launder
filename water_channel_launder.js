@@ -97,7 +97,7 @@ function channel_launder_water(channel_width, channel_height, flow, slope, visco
   var count = 1;
   var diff = 1;
   // calculate the gravity Portion
-  return 0;
+  var dPdL_gravity = density * 9.81 * slope;
   if (dPdL_gravity == 0) {
     return 0;
   } else {
